@@ -1,0 +1,20 @@
+- name: Joni Rodito
+  facebook: https://www.facebook.com/joni.rodito
+  slack: https://cb-mediagroup.slack.com/messages/@j.rodito/
+  image: img/team-3.png
+  role: CEO - Back End Developer - Analyst
+  skill: Specialist in Back End Developer field, experienced more than 6 years.
+
+- name: Dimam Bagus
+  facebook: https://www.facebook.com/dmas.dimdim
+  slack: https://cb-mediagroup.slack.com/messages/@dimasbagus989/
+  image: img/team-1.png
+  role: CEO - Founder - Marketing - Analyst
+  skill: Owner and founder of CB Media Group, also engaged in product marketing.
+
+- name: Imam Ali Mustofa
+  facebook: https://www.facebook.com/trojan302
+  slack: https://cb-mediagroup.slack.com/messages/@ucilrebull/
+  image: img/team-2.png
+  role: Front End Developer - Graphic Designer
+  skill: Specialist in Front End Developer field, experienced more than 3 years. UI / UX is the priority.

@@ -1,0 +1,23 @@
+- name: Kemenkes RI
+  base: Kabupaten Magelang
+  image: img/client-logo-1.png
+  text: Keren! Selain tampilan manarik layanan CB Media Group sungguh memuaskan. Kami tampil lebih professional.
+  active: true
+
+- name: Krenova
+  base: Kabupaten Temanggung
+  image: img/client-logo-2.png
+  text: Lebih percaya diri untuk tampil dalam penyelenggaraan event prefesional, kreatif! Ketika landing, kami merasa ada pada kompetisi besar.
+  active: false
+
+- name: Krenova
+  base: Kota Magelang
+  image: img/client-logo-3.png
+  text: Kami sangat beruntung bertemu dengan developer yang disiplin dan baik dalam pengerjaannya, kami puas dengan mimpi yang sudah mereka wujudkan!
+  active: false
+
+- name: Simpelbang
+  base: Kabupaten Blora
+  image: img/client-logo-4.png
+  text: Dengan penampilan baru yang sangat kami sukai, ternyata memberi citra baru bagi instansi kami. Profesionalisme dan kebutuhan visitor bisa kami tangangi.
+  active: false
