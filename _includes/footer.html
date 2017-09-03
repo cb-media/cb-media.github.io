@@ -1,127 +1,127 @@
 <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">
-                <a href="javascript:void(0);"><img src="img/logos.png " alt=""></a>
-            </div>
-            <span class="copyright">&copy; CB Media Group. All Rights Reserved</span>
-            <div class="credits">
-                <a href="javascript:void(0);">Talk Business with us</a> - <a href="javascript:void(0);">CB Media Group</a>
-            </div>
+    <div class="container">
+        <div class="footer-logo">
+            <a href="javascript:void(0);"><img src="img/logos.png " alt=""></a>
         </div>
-    </footer>
+        <span class="copyright">&copy; CB Media Group. All Rights Reserved</span>
+        <div class="credits">
+            <a href="javascript:void(0);">Talk Business with us</a> - <a href="javascript:void(0);">CB Media Group</a>
+        </div>
+    </div>
+</footer>
 
-    <script>
-        $("#contact_us ").click(function(e) {
-            e.preventDefault();
-            var nama = $("#name ").val(),
-                email = $("#email ").val(),
-                subjek = $("#subject ").val(),
-                message = $("#message ").val();
+<script>
+    $("#contact_us ").click(function(e) {
+        e.preventDefault();
+        var nama = $("#name ").val(),
+            email = $("#email ").val(),
+            subjek = $("#subject ").val(),
+            message = $("#message ").val();
 
-            var url = 'https://hooks.slack.com/services/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';
-            var text = "Nama: " + nama + "\nEmail: " + email + "\nSubjek: " + subjek + "\nPesan:\n " + message;
-            $.ajax({
-                data: 'payload=' + JSON.stringify({
-                    "text ": text
-                }),
-                dataType: 'json',
-                processData: false,
-                type: 'POST',
-                url: url
-            });
-
-            window.location.reload();
+        var url = 'https://hooks.slack.com/services/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';
+        var text = "Nama: " + nama + "\nEmail: " + email + "\nSubjek: " + subjek + "\nPesan:\n " + message;
+        $.ajax({
+            data: 'payload=' + JSON.stringify({
+                "text ": text
+            }),
+            dataType: 'json',
+            processData: false,
+            type: 'POST',
+            url: url
         });
-    </script>
 
-    <script type="text/javascript">
-        $(document).ready(function(e) {
-            $('#test').scrollToFixed();
-            $('.res-nav_click').click(function() {
-                $('.main-nav').slideToggle();
-                return false;
+        window.location.reload();
+    });
+</script>
 
-            });
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $('#test').scrollToFixed();
+        $('.res-nav_click').click(function() {
+            $('.main-nav').slideToggle();
+            return false;
+
         });
-    </script>
+    });
+</script>
 
-    <script>
-        wow = new WOW({
-            animateClass: 'animated',
-            offset: 100
+<script>
+    wow = new WOW({
+        animateClass: 'animated',
+        offset: 100
+    });
+    wow.init();
+</script>
+
+
+<script type="text/javascript">
+    $(window).load(function() {
+
+        $('.main-nav li a, .servicelink').bind('click', function(event) {
+            var $anchor = $(this);
+
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top - 102
+            }, 1500, 'easeInOutExpo');
+
+            // $('html, body').stop().animate({
+            //     scrollTop: $($anchor.attr('href')).offset().top
+            // }, 1000);
+
+            if ($(window).width() < 768) {
+                $('.main-nav').hide();
+            }
+            event.preventDefault();
         });
-        wow.init();
-    </script>
+    });
+</script>
+
+<script type="text/javascript">
+    $(window).load(function() {
 
 
-    <script type="text/javascript">
-        $(window).load(function() {
+        var $container = $('.portfolioContainer'),
+            $body = $('body'),
+            colW = 375,
+            columns = null;
 
-            $('.main-nav li a, .servicelink').bind('click', function(event) {
-                var $anchor = $(this);
 
-                $('html, body').stop().animate({
-                    scrollTop: $($anchor.attr('href')).offset().top - 102
-                }, 1500, 'easeInOutExpo');
-
-                // $('html, body').stop().animate({
-                //     scrollTop: $($anchor.attr('href')).offset().top
-                // }, 1000);
-
-                if ($(window).width() < 768) {
-                    $('.main-nav').hide();
-                }
-                event.preventDefault();
-            });
+        $container.isotope({
+            // disable window resizing
+            resizable: true,
+            masonry: {
+                columnWidth: colW
+            }
         });
-    </script>
 
-    <script type="text/javascript">
-        $(window).load(function() {
+        $(window).smartresize(function() {
+            // check if columns has changed
+            var currentColumns = Math.floor(($body.width() - 30) / colW);
+            if (currentColumns !== columns) {
+                // set new column count
+                columns = currentColumns;
+                // apply width to container manually, then trigger relayout
+                $container.width(columns * colW)
+                    .isotope('reLayout');
+            }
 
+        }).smartresize(); // trigger resize to set container width
+        $('.portfolioFilter a').click(function() {
+            $('.portfolioFilter .current').removeClass('current');
+            $(this).addClass('current');
 
-            var $container = $('.portfolioContainer'),
-                $body = $('body'),
-                colW = 375,
-                columns = null;
-
-
+            var selector = $(this).attr('data-filter');
             $container.isotope({
-                // disable window resizing
-                resizable: true,
-                masonry: {
-                    columnWidth: colW
-                }
+
+                filter: selector,
             });
-
-            $(window).smartresize(function() {
-                // check if columns has changed
-                var currentColumns = Math.floor(($body.width() - 30) / colW);
-                if (currentColumns !== columns) {
-                    // set new column count
-                    columns = currentColumns;
-                    // apply width to container manually, then trigger relayout
-                    $container.width(columns * colW)
-                        .isotope('reLayout');
-                }
-
-            }).smartresize(); // trigger resize to set container width
-            $('.portfolioFilter a').click(function() {
-                $('.portfolioFilter .current').removeClass('current');
-                $(this).addClass('current');
-
-                var selector = $(this).attr('data-filter');
-                $container.isotope({
-
-                    filter: selector,
-                });
-                return false;
-            });
-
+            return false;
         });
-    </script>
 
-    <!-- <script>
+    });
+</script>
+
+<!-- <script>
         $("#header").backstretch([
             "img/bg-vscode.png", "img/bg-business.png"
         ], {
@@ -130,13 +130,13 @@
         });
     </script> -->
 
-    <!-- <script>
-        (function(w, i, d, g, e, t, s) {
-            w[d] = w[d] || [];
-            t = i.createElement(g);
-            t.async = 1;
-            t.src = e;
-            s = i.getElementsByTagName(g)[0];
-            s.parentNode.insertBefore(t, s);
-        })(window, document, '_gscq', 'script', '//widgets.getsitecontrol.com/100860/script.js');
-    </script> -->
+<script>
+    (function(w, i, d, g, e, t, s) {
+        w[d] = w[d] || [];
+        t = i.createElement(g);
+        t.async = 1;
+        t.src = e;
+        s = i.getElementsByTagName(g)[0];
+        s.parentNode.insertBefore(t, s);
+    })(window, document, '_gscq', 'script', '//widgets.getsitecontrol.com/100860/script.js');
+</script>
