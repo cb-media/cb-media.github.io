@@ -78,14 +78,12 @@
 
 <script type="text/javascript">
     $(window).load(function() {
-
-
+      
         var $container = $('.portfolioContainer'),
             $body = $('body'),
             colW = 375,
             columns = null;
-
-
+      
         $container.isotope({
             // disable window resizing
             resizable: true,
@@ -93,7 +91,7 @@
                 columnWidth: colW
             }
         });
-
+      
         $(window).smartresize(function() {
             // check if columns has changed
             var currentColumns = Math.floor(($body.width() - 30) / colW);
@@ -129,14 +127,3 @@
             fade: 750
         });
     </script> -->
-
-<script>
-    (function(w, i, d, g, e, t, s) {
-        w[d] = w[d] || [];
-        t = i.createElement(g);
-        t.async = 1;
-        t.src = e;
-        s = i.getElementsByTagName(g)[0];
-        s.parentNode.insertBefore(t, s);
-    })(window, document, '_gscq', 'script', '//widgets.getsitecontrol.com/100860/script.js');
-</script>
